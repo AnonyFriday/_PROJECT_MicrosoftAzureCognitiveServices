@@ -1,0 +1,45 @@
+<div class="container mt-5">
+  <div class="card" style="padding: 20px">
+    <div class="row">
+      <div class="col-lg-6">
+        <form
+          #imageForm="ngForm"
+          autocomplete="off"
+          (ngSubmit)="analyzeImage(imageForm)"
+        >
+          <!-- Image Url Input Form -->
+          <div class="form-group">
+            <label class="form-control" for="imageURL">Image URL</label>
+            <input
+              class="form-control"
+              type="text"
+              name="imageURL"
+              id="imageUrl"
+              placeholder="Attach Image Url"
+              ngModel
+            />
+          </div>
+
+          <!-- Submit button -->
+          <div class="form-group">
+            <input
+              type="submit"
+              value="Analyze Image"
+              class="btn btn-primary w-100"
+            />
+          </div>
+
+          <!-- Image -->
+          <img
+            class=""
+            [src]="imageURLPreview"
+            alt=""
+            width="100%"
+            height="auto"
+          />
+        </form>
+      </div>
+      <div class="col-lg-6">Learn</div>
+    </div>
+  </div>
+</div>
