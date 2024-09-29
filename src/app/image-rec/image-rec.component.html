@@ -1,6 +1,7 @@
 <div class="container mt-5">
   <div class="card" style="padding: 20px">
     <div class="row">
+      <!-- Upload Image -->
       <div class="col-lg-6">
         <form
           #imageForm="ngForm"
@@ -8,8 +9,8 @@
           (ngSubmit)="analyzeImage(imageForm)"
         >
           <!-- Image Url Input Form -->
-          <div class="form-group">
-            <label class="form-control" for="imageURL">Image URL</label>
+          <div class="mb-3">
+            <label class="form-label" for="imageURL">Image URL</label>
             <input
               class="form-control"
               type="text"
@@ -21,7 +22,7 @@
           </div>
 
           <!-- Submit button -->
-          <div class="form-group">
+          <div class="mb-3">
             <input
               type="submit"
               value="Analyze Image"
@@ -39,7 +40,16 @@
           />
         </form>
       </div>
-      <div class="col-lg-6">Learn</div>
+
+      <!-- Show JSON of the Image -->
+      <div class="col-lg-6">
+        @if (!!imageObject) {
+        <ngx-json-viewer
+          [json]="imageObject"
+          [expanded]="true"
+        ></ngx-json-viewer>
+        }
+      </div>
     </div>
   </div>
 </div>
